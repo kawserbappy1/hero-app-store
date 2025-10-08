@@ -1,16 +1,30 @@
-# React + Vite
+🚀 Hero App Store
+✨ Description
+The Hero App Store is a modern, responsive web application designed to showcase a curated collection of globally popular and trending mobile and web applications. This platform offers users a sleek interface to browse, view detailed statistics (downloads, ratings, reviews), and read comprehensive descriptions for each app. The website features seamless navigation using React Router, real-time data visualisation via Recharts for app ratings, and an installation simulation powered by local storage and Toastify notifications. It delivers a fast, user-friendly experience reflecting contemporary app store design standards.
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+🛠 Technologies Used
+This project was built using the following key technologies and libraries:
 
-Currently, two official plugins are available:
+Core Stack
+React: The fundamental JavaScript library for building the user interface.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+React Router / React Router DOM: Used for efficient, declarative routing and navigation across the application's pages (e.g., App Details view).
 
-## React Compiler
+Axios: Promise-based HTTP client for making API requests (data fetching).
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+Styling & UI/UX
+Tailwind CSS: A utility-first CSS framework used for rapid and responsive styling.
 
-## Expanding the ESLint configuration
+@tailwindcss/vite
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+React Icons: A collection of popular SVG icon packs used to enhance the UI.
+
+React Toastify: Used for non-blocking, customizable notifications (e.g., installation success/error).
+
+Data Visualization & Effects
+Recharts: A composable charting library built on React components, used for displaying visual app rating data.
+
+React CountUp: Used to create animated numerical displays for statistics (downloads, ratings).
+
+Development Dependencies
+React-DOM
