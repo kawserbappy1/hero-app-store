@@ -4,6 +4,7 @@ import star from "../assets/star.png";
 import { toast } from "react-toastify";
 import { ToastContainer } from "react-toastify";
 
+
 const Installations = () => {
   const [instalList, setInstalList] = useState([]);
   const [sortOrder, setSortOrder] = useState("none");
@@ -40,6 +41,7 @@ const Installations = () => {
       theme: "colored",
     });
   };
+
   return (
     <div className="max-w-[1440px] mx-auto px-2 py-10 md:px-4 lg:px-6 xl:px-8">
       <div>
@@ -66,7 +68,10 @@ const Installations = () => {
 
       <div>
         {sortedItem().map((p) => (
-          <div key={p.id} className="flex items-center justify-between bg-white p-4 rounded-md mb-2 ">
+          <div
+            key={p.id}
+            className="flex flex-col md:flex-row gap-8 items-center justify-between bg-white p-4 rounded-md mb-2 "
+          >
             <div className="flex items-center gap-5">
               <div>
                 <img src={p.image} alt="" className="size-20 rounded-sm" />

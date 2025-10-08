@@ -7,6 +7,18 @@ import { useParams } from "react-router";
 import LoadingSpinner from "./../Components/LoadingSpinner";
 import { toast } from "react-toastify";
 import { ToastContainer } from "react-toastify";
+import {
+  ComposedChart,
+  Line,
+  Area,
+  Bar,
+  XAxis,
+  YAxis,
+  CartesianGrid,
+  Tooltip,
+  Legend,
+  ResponsiveContainer,
+} from "recharts";
 
 const AppsDetails = () => {
   const { id } = useParams();
@@ -61,7 +73,7 @@ const AppsDetails = () => {
           <h3 className="text-2xl md:text-xl font-bold">SmPlan:ToDo List with Reminder</h3>
           <p className="text-xl text-[#627382] my-2">
             Developed by
-            <span className="bg-[linear-gradient(125deg,#632EE3_5.68%,#9F62F2_88.38%)] bg-clip-text text-transparent">
+            <span className="bg-[linear-gradient(125deg,#632EE3_5.68%,#9F62F2_88.38%)] bg-clip-text text-transparent ml-1">
               {companyName}
             </span>
           </p>
@@ -100,9 +112,31 @@ const AppsDetails = () => {
       </div>
       <div className="border-b border-b-titleColor/20 my-4 md:my-2 lg:my-4"></div>
       {/* Chart here  */}
+      <div className="w-full h-[200px] md:h-[300px] lg:h-[350px]  p-5 rounded-md mb-10">
+        <h3 className="text-lg font-semibold mb-4 text-titleColor">Ratings</h3>
+        <ResponsiveContainer width="100%" height="100%">
+          <ComposedChart
+            layout="vertical"
+            data={[...findAppdataAppDetails.ratings].sort((a, b) => b.name.split(" ")[0] - a.name.split(" ")[0])}
+            margin={{
+              top: 20,
+              right: 40,
+              bottom: 20,
+              left: 40,
+            }}
+          >
+            <CartesianGrid stroke="#f5f5f5" />
+            <YAxis dataKey="name" type="category" tick={{ fontSize: 12 }} />
+            <XAxis type="number" />
+            <Tooltip />
 
+            <Bar dataKey="count" barSize={25} fill="#FF8811" radius={[4, 4, 4, 4]} />
+          </ComposedChart>
+        </ResponsiveContainer>
+      </div>
+      <div className="border-b border-b-titleColor/20 mt-5 my-4 md:my-2 lg:my-4"></div>
       {/* product description  */}
-      <div>
+      <div className="mt-10">
         <h4 className="text-2xl font-semibold text-titleColor mb-4">Description</h4>
         <p className="text-md md:text-base text-[#627382] leading-[32px]">{description}</p>
       </div>

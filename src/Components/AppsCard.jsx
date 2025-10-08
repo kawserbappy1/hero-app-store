@@ -13,11 +13,11 @@ const AppsCard = ({ app }) => {
         </div>
         <h2 className="text-lg font-[500] capitalize text-titleColor py-4 flex-1">{title}</h2>
         <div className="flex items-center justify-between">
-          <button className="bg-[#F1F5E8] text-[#00D390] px-[10px] py-[6px] flex items-center gap-2 rounded-sm">
+          <button className="bg-[#F1F5E8] text-[#00D390] px-[10px] py-[6px] flex items-center gap-1 rounded-sm">
             <LiaDownloadSolid />
             {downloads}
           </button>
-          <button className="bg-[#FFF0E1] text-[#FF8811] px-[10px] py-[6px] flex items-center gap-2 rounded-sm">
+          <button className="bg-[#FFF0E1] text-[#FF8811] px-[10px] py-[6px] flex items-center gap-1 rounded-sm">
             <FaStar />
             {ratingAvg}
           </button>
