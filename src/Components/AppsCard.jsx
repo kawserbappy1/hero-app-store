@@ -4,10 +4,10 @@ import { LiaDownloadSolid } from "react-icons/lia";
 import { FaStar } from "react-icons/fa";
 
 const AppsCard = ({ app }) => {
-  const { image, title, downloads, ratingAvg } = app;
+  const { id, image, title, downloads, ratingAvg } = app;
   return (
     <div className="p-4 bg-white rounded-sm">
-      <Link to={"/"} className="flex flex-col">
+      <Link to={`/app-details/${id}`} className="flex flex-col">
         <div className=" bg-[#d9d9d9] flex-1">
           <img src={image} alt={title} className="size-60 w-full " />
         </div>
