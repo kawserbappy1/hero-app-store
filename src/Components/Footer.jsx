@@ -86,9 +86,9 @@ const Footer = () => {
       <aside>
         <p className="text-white">
           Copyright © {new Date().getFullYear()} - All right reserved by
-          <h2 className="uppercase font-bold leading-[26px] bg-[linear-gradient(125deg,#632EE3_5.68%,#9F62F2_88.38%)] bg-clip-text text-transparent inline-block ml-3">
+          <span className="uppercase font-bold leading-[26px] bg-[linear-gradient(125deg,#632EE3_5.68%,#9F62F2_88.38%)] bg-clip-text text-transparent inline-block ml-3">
             Kawser Hamid Bappy
-          </h2>
+          </span>
         </p>
       </aside>
     </footer>
