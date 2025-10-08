@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import download from "../assets/download.png";
 import star from "../assets/star.png";
 import thumb from "../assets/thumb.png";
@@ -23,8 +23,17 @@ import {
 const AppsDetails = () => {
   const { id } = useParams();
   const { appData, loading } = useLoadApp();
+  const [installed, setInstalled] = useState(false);
 
   const findAppdataAppDetails = appData.find((app) => app.id === parseInt(id));
+  useEffect(() => {
+    if (findAppdataAppDetails) {
+      const existingList = JSON.parse(localStorage.getItem("applist")) || [];
+      const isInstalled = existingList.some((p) => p.id === findAppdataAppDetails.id);
+      setInstalled(isInstalled);
+    }
+  }, [findAppdataAppDetails]);
+
   if (loading) return <LoadingSpinner></LoadingSpinner>;
   const { image, companyName, size, downloads, ratingAvg, reviews, description } = findAppdataAppDetails;
 
@@ -44,6 +53,7 @@ const AppsDetails = () => {
           progress: undefined,
           theme: "light",
         });
+        setInstalled(true);
         return;
       }
       upDateList = [...existingList, findAppdataAppDetails];
@@ -60,7 +70,9 @@ const AppsDetails = () => {
     } else {
       upDateList.push(findAppdataAppDetails);
     }
+
     localStorage.setItem("applist", JSON.stringify(upDateList));
+    setInstalled(true);
   };
 
   return (
@@ -102,17 +114,20 @@ const AppsDetails = () => {
 
           <div className="text-center md:text-start">
             <button
+              disabled={installed}
               onClick={handleAddtoInstallationPage}
-              className="px-5 py-3 bg-[#00D390] text-white rounded-md mt-7 cursor-pointer "
+              className={`px-5 py-3 rounded-md mt-7  transition-colors duration-200 ${
+                installed ? "bg-gray-400 text-white cursor-not-allowed" : "bg-[#00D390] text-white hover:bg-[#00b87d]"
+              }`}
             >
-              Install Now ({size} MB)
+              {installed ? "installed" : `Install Now (${size} MB)`}
             </button>
           </div>
         </div>
       </div>
       <div className="border-b border-b-titleColor/20 my-4 md:my-2 lg:my-4"></div>
       {/* Chart here  */}
-      <div className="w-full h-[200px] md:h-[300px] lg:h-[350px]  p-5 rounded-md mb-10">
+      <div className="w-full h-[250px] md:h-[300px] lg:h-[350px] p-2 md:p-5 rounded-md mb-10">
         <h3 className="text-lg font-semibold mb-4 text-titleColor">Ratings</h3>
         <ResponsiveContainer width="100%" height="100%">
           <ComposedChart
@@ -129,8 +144,7 @@ const AppsDetails = () => {
             <YAxis dataKey="name" type="category" tick={{ fontSize: 12 }} />
             <XAxis type="number" />
             <Tooltip />
-
-            <Bar dataKey="count" barSize={25} fill="#FF8811" radius={[4, 4, 4, 4]} />
+            <Bar dataKey="count" barSize={25} fill="#FF8811" />
           </ComposedChart>
         </ResponsiveContainer>
       </div>
