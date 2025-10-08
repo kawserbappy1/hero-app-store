@@ -13,7 +13,7 @@ const useLoadApp = () => {
       .finally(
         setTimeout(() => {
           setLoading(false);
-        }, 1000)
+        }, 300)
       );
   }, []);
 

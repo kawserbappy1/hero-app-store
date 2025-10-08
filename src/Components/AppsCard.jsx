@@ -6,10 +6,14 @@ import { FaStar } from "react-icons/fa";
 const AppsCard = ({ app }) => {
   const { id, image, title, downloads, ratingAvg } = app;
   return (
-    <div className="p-4 bg-white rounded-sm">
+    <div className="p-4 bg-white rounded-sm ">
       <Link to={`/app-details/${id}`} className="flex flex-col">
-        <div className=" bg-[#d9d9d9] flex-1">
-          <img src={image} alt={title} className="size-60 w-full " />
+        <div className=" bg-[#d9d9d9] flex-1 overflow-hidden">
+          <img
+            src={image}
+            alt={title}
+            className="size-60 w-full object-cover transition-all duration-500 hover:scale-110"
+          />
         </div>
         <h2 className="text-lg font-[500] capitalize text-titleColor py-4 flex-1">{title}</h2>
         <div className="flex items-center justify-between">

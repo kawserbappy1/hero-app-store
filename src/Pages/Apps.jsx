@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import useLoadApp from "../Hooks/Hooks";
 import AppsCard from "../Components/AppsCard";
 import LoadingSpinner from "../Components/LoadingSpinner";
-import { Link } from "react-router";
 import AppNotFound from "../Components/AppNotFound";
 
 const Apps = () => {
@@ -11,23 +10,19 @@ const Apps = () => {
   const [isSearching, setIsSearching] = useState(false);
   const [searchedApps, setSearchedApps] = useState([]);
 
-  // Filter data when typing
   useEffect(() => {
     if (!appData.length) return;
-
     setIsSearching(true);
-
-    const timer = setTimeout(() => {
+    const setTimes = setTimeout(() => {
       const searchValidation = isSearch.trim().toLowerCase();
       const filtered = searchValidation
         ? appData.filter((app) => app.title.toLowerCase().includes(searchValidation))
         : appData;
-
       setSearchedApps(filtered);
       setIsSearching(false);
-    }, 200); // small delay for loader
+    }, 200);
 
-    return () => clearTimeout(timer);
+    return () => clearTimeout(setTimes);
   }, [isSearch, appData]);
 
   if (loading) {
@@ -36,7 +31,6 @@ const Apps = () => {
 
   return (
     <div className="relative max-w-[1440px] mx-auto py-10 px-2 md:px-4 lg:px-6 xl:px-8">
-      {/* Loader Overlay */}
       {isSearching && (
         <div className="absolute inset-0 flex justify-center items-center bg-white/60  z-10">
           <LoadingSpinner />

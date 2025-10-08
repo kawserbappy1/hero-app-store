@@ -2,7 +2,6 @@ import React from "react";
 import useLoadApp from "../Hooks/Hooks";
 import AppsCard from "./AppsCard";
 import { Link } from "react-router";
-
 import LoadingSpinner from "./LoadingSpinner";
 
 const HomeApps = () => {
@@ -34,7 +33,7 @@ const HomeApps = () => {
           to={"/apps"}
           className="bg-[linear-gradient(125deg,#632EE3_5.68%,#9F62F2_88.38%)] px-6 py-3 rounded-md text-white inline-block text-center mt-10"
         >
-          Show All{" "}
+          Show All
         </Link>
       </div>
     </div>

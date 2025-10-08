@@ -21,14 +21,14 @@ const Banner = () => {
         <Link
           to={"https://play.google.com/store/apps?hl=en"}
           target="_blank"
-          className="flex items-center gap-2 px-4 py-2 md:px-6 md:py-3 border border-gray-200 text-sm md:text-base rounded-sm shadow-sm"
+          className="flex items-center gap-2 px-4 py-2 md:px-6 md:py-3 border border-gray-200 text-sm md:text-base rounded-sm shadow-sm transition-all duration-500 hover:bg-white hover:border-[#632EE3]"
         >
           <img src={googlePlay} alt="" className="size-5 md:size-8" /> Google Play
         </Link>
         <Link
           to={"https://www.apple.com/app-store/"}
           target="_blank"
-          className="flex items-center gap-2 px-4 py-2 md:px-6 md:py-3 border border-gray-200 text-sm md:text-base rounded-sm shadow-sm"
+          className="flex items-center gap-2 px-4 py-2 md:px-6 md:py-3 border border-gray-200 text-sm md:text-base rounded-sm shadow-sm transition-all duration-500 hover:bg-white hover:border-[#632EE3]"
         >
           <img src={apple} alt="" className="size-5 md:size-8" /> App Store
         </Link>

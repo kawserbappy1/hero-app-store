@@ -4,9 +4,9 @@ import { Link } from "react-router-dom";
 
 const AppNotFound = () => {
   return (
-    <div className="flex justify-center flex-col items-center">
+    <div className="flex justify-center flex-col items-center py-10">
       <img src={appError} alt="" />
-      <h2 className="text-2xl md:text-5xl font-bold text-titleColor my-2">OPPS!! APP NOT FOUND</h2>
+      <h2 className="text-2xl md:text-5xl font-bold text-titleColor my-2">OPPS!! APPS NOT FOUND</h2>
       <p className="text-base md:text-xl text-[#627382]">
         The App you are requesting is not found on our system. please try another apps
       </p>

@@ -3,11 +3,25 @@ import download from "../assets/download.png";
 import star from "../assets/star.png";
 import { toast } from "react-toastify";
 import { ToastContainer } from "react-toastify";
-
+import LoadingSpinner from "../Components/LoadingSpinner";
 
 const Installations = () => {
   const [instalList, setInstalList] = useState([]);
   const [sortOrder, setSortOrder] = useState("none");
+  const [loading, setLoading] = useState(true); // ✅ new loading state
+
+  useEffect(() => {
+    setLoading(true); // start loading when page opens
+
+    // simulate small loading delay (like fetching from API)
+    const timer = setTimeout(() => {
+      const savedItem = JSON.parse(localStorage.getItem("applist"));
+      if (savedItem) setInstalList(savedItem);
+      setLoading(false); // ✅ stop loader after data loads
+    }, 1000); // you can change delay (ms)
+
+    return () => clearTimeout(timer);
+  }, []);
 
   useEffect(() => {
     const savedItem = JSON.parse(localStorage.getItem("applist"));
@@ -41,7 +55,14 @@ const Installations = () => {
       theme: "colored",
     });
   };
-
+  // ✅ Show loader while loading
+  if (loading) {
+    return (
+      <div className="flex justify-center items-center min-h-[70vh]">
+        <LoadingSpinner />
+      </div>
+    );
+  }
   return (
     <div className="max-w-[1440px] mx-auto px-2 py-10 md:px-4 lg:px-6 xl:px-8">
       <div>
